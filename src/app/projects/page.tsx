@@ -23,7 +23,7 @@ export default function Projects() {
       description: "Comprehensive robotics codebase for FIRST Robotics Competition team 6854. Includes libraries for standard robot integration and competition-ready robot code for the 2022-23 season with hardware integration.",
       image: "/images/robot.png",
       technologies: ["Java", "WPILib", "Git", "Hardware Integration"],
-      github: "https://github.com/At104/frc-codebase",
+      github: "https://github.com/FRC6854/2023ChargedUpOfficial",
       demo: null,
     },
     {

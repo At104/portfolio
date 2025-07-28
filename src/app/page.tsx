@@ -18,6 +18,8 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FadeInOnScroll } from "@/components/Animations";
+import AnimatedName from "@/components/AnimatedName";
+import TypeWriter from "@/components/TypeWriter";
 
 export default function Home() {
   const techStack = {
@@ -133,9 +135,26 @@ export default function Home() {
                 />
               </div>
               
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                Hi, I&apos;m <span className="gradient-text">Atul</span>
-              </h1>
+              <AnimatedName className="text-5xl md:text-7xl font-bold mb-4">
+                <span className="gradient-text">Atul</span>
+              </AnimatedName>
+              
+              <div className="mb-8">
+                <TypeWriter 
+                  texts={[
+                    "Software Developer",
+                    "Cloud Computing Enthusiast",
+                    "Software Engineering Student",
+                    "Machine Learning Explorer",
+                    "Robotics Programmer",
+
+                  ]}
+                  className="text-2xl md:text-3xl text-primary font-semibold"
+                  speed={80}
+                  delay={2500}
+                  initialDelay={1400}
+                />
+              </div>
               
               <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
                 Software Engineering Student at McMaster University passionate about 
