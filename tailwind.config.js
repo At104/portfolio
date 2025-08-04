@@ -5,16 +5,39 @@ module.exports = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        primary: '#8b5cf6',
-        secondary: '#a855f7',
-        accent: '#c084fc',
-        background: '#000000',
-        foreground: '#ffffff',
-        muted: '#374151',
-        border: '#1f2937',
+        primary: {
+          DEFAULT: '#f97316', // Orange for both themes
+          dark: '#ea580c',
+        },
+        secondary: {
+          DEFAULT: '#fb923c', // Lighter orange
+          dark: '#f97316',
+        },
+        accent: '#fed7aa', // Very light orange
+        background: {
+          DEFAULT: '#ffffff', // Light mode background
+          dark: '#000000', // Dark mode background
+        },
+        foreground: {
+          DEFAULT: '#1f2937', // Light mode text
+          dark: '#ffffff', // Dark mode text
+        },
+        muted: {
+          DEFAULT: '#6b7280', // Light mode muted text
+          dark: '#9ca3af', // Dark mode muted text
+        },
+        border: {
+          DEFAULT: '#e5e7eb', // Light mode borders
+          dark: '#374151', // Dark mode borders
+        },
+        card: {
+          DEFAULT: '#f9fafb', // Light mode card background
+          dark: '#111827', // Dark mode card background
+        },
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)', 'sans-serif'],

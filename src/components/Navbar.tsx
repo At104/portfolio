@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,7 +12,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-colors duration-300" style={{ backgroundColor: 'rgba(var(--background-rgb), 0.9)', borderBottomColor: 'var(--border)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">
@@ -25,29 +26,35 @@ export default function Navbar() {
               <Link 
                 href="/" 
                 className="hover:text-primary transition-colors duration-200 font-medium"
+                style={{ color: 'var(--foreground)' }}
               >
                 Home
               </Link>
               <Link 
                 href="/projects" 
                 className="hover:text-primary transition-colors duration-200 font-medium"
+                style={{ color: 'var(--foreground)' }}
               >
                 Projects
               </Link>
               <Link 
                 href="/contact" 
                 className="hover:text-primary transition-colors duration-200 font-medium"
+                style={{ color: 'var(--foreground)' }}
               >
                 Contact
               </Link>
+              <ThemeToggle />
             </div>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-4">
+            <ThemeToggle />
             <button 
               onClick={toggleMenu}
-              className="text-white hover:text-primary transition-colors duration-200"
+              className="hover:text-primary transition-colors duration-200"
+              style={{ color: 'var(--foreground)' }}
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMenuOpen ? (
@@ -63,24 +70,27 @@ export default function Navbar() {
         {/* Mobile menu */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-black/90 backdrop-blur-md border-t border-gray-800">
+            <div className="px-2 pt-2 pb-3 space-y-1 backdrop-blur-md border-t" style={{ backgroundColor: 'rgba(var(--background-rgb), 0.9)', borderTopColor: 'var(--border)' }}>
               <Link 
                 href="/" 
-                className="block px-3 py-2 text-white hover:text-primary transition-colors duration-200 font-medium"
+                className="block px-3 py-2 hover:text-primary transition-colors duration-200 font-medium"
+                style={{ color: 'var(--foreground)' }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Home
               </Link>
               <Link 
                 href="/projects" 
-                className="block px-3 py-2 text-white hover:text-primary transition-colors duration-200 font-medium"
+                className="block px-3 py-2 hover:text-primary transition-colors duration-200 font-medium"
+                style={{ color: 'var(--foreground)' }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Projects
               </Link>
               <Link 
                 href="/contact" 
-                className="block px-3 py-2 text-white hover:text-primary transition-colors duration-200 font-medium"
+                className="block px-3 py-2 hover:text-primary transition-colors duration-200 font-medium"
+                style={{ color: 'var(--foreground)' }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Contact

@@ -18,7 +18,6 @@ import {
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FadeInOnScroll } from "@/components/Animations";
-import AnimatedName from "@/components/AnimatedName";
 import TypeWriter from "@/components/TypeWriter";
 
 export default function Home() {
@@ -121,7 +120,7 @@ export default function Home() {
       
       <main className="min-h-screen">
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center px-6 lg:px-8">
+        <section className="min-h-screen flex items-center justify-center px-6 lg:px-8" style={{ backgroundColor: 'var(--background)', color: 'var(--foreground)' }}>
           <div className="max-w-4xl mx-auto text-center">
             <FadeInOnScroll>
               <div className="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-primary">
@@ -135,9 +134,9 @@ export default function Home() {
                 />
               </div>
               
-              <AnimatedName className="text-5xl md:text-7xl font-bold mb-4">
-                <span className="gradient-text">Atul</span>
-              </AnimatedName>
+              <div className="text-5xl md:text-7xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
+                Hi, I&apos;m <span className="gradient-text">Atul</span>
+              </div>
               
               <div className="mb-8">
                 <TypeWriter 
@@ -156,7 +155,7 @@ export default function Home() {
                 />
               </div>
               
-              <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed" style={{ color: 'var(--muted)' }}>
                 Software Engineering Student at McMaster University passionate about 
                 building innovative solutions through the cloud, machine learning, and robotics.
               </p>
@@ -186,13 +185,13 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <FadeInOnScroll>
                 <div>
-                  <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                  <p className="text-lg leading-relaxed mb-6" style={{ color: 'var(--muted)' }}>
                     From a young age, I was surrounded by technology and it became a fundamental part of my childhood.
                     Whether playing video games, watching movies, or using the internet for schoolwork, 
                     I have always been fascinated by technology&apos;s ability to change the world.
                   </p>
                   
-                  <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                  <p className="text-lg leading-relaxed mb-6" style={{ color: 'var(--muted)' }}>
                     These experiences inspired me to pursue a career in this field. I&apos;m currently in my second year of 
                     Software Engineering at McMaster University, actively seeking internships for Summer 2026.
                   </p>
@@ -211,7 +210,7 @@ export default function Home() {
               <FadeInOnScroll>
                 <div className="card">
                   <h3 className="text-2xl font-bold mb-4 gradient-text">Interests</h3>
-                  <ul className="space-y-3 text-gray-300">
+                  <ul className="space-y-3" style={{ color: 'var(--muted)' }}>
                     <li className="flex items-center gap-3">
                       <span className="text-primary">•</span>
                       Cybersecurity
@@ -240,7 +239,7 @@ export default function Home() {
         </section>
 
         {/* Tech Stack Section */}
-        <section className="section py-20 bg-gradient-to-br from-orange-950/20 to-amber-950/20">
+        <section className="section py-20 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-orange-950/25 dark:to-amber-950/25">
           <div className="max-w-6xl mx-auto">
             <FadeInOnScroll>
               <h2 className="section-title">Tech Stack</h2>
@@ -256,13 +255,13 @@ export default function Home() {
                     <div className="flex flex-wrap justify-center gap-4">
                       {technologies.map((tech, index) => (
                         <FadeInOnScroll key={tech.name} delay={categoryIndex * 200 + index * 50}>
-                          <div className="card group cursor-pointer min-h-[120px] w-32 flex flex-col items-center justify-center text-center p-4">
+                          <div className="tech-card group cursor-pointer min-h-[120px] w-32 flex flex-col items-center justify-center text-center p-4">
                             <div className="mb-3 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center h-12 w-full">
                               <div className="text-primary flex items-center justify-center text-3xl">
                                 {tech.icon}
                               </div>
                             </div>
-                            <h4 className="font-semibold text-sm">{tech.name}</h4>
+                            <h4 className="font-semibold text-sm" style={{ color: 'var(--foreground)' }}>{tech.name}</h4>
                           </div>
                         </FadeInOnScroll>
                       ))}
@@ -274,7 +273,7 @@ export default function Home() {
             
             <FadeInOnScroll delay={600}>
               <div className="text-center mt-12">
-                <p className="text-gray-400">
+                <p style={{ color: 'var(--muted)' }}>
                   Always learning and exploring new technologies to stay at the forefront of innovation.
                 </p>
               </div>
@@ -282,27 +281,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="section py-20">
-          <div className="max-w-4xl mx-auto text-center">
-            <FadeInOnScroll>
-              <h2 className="text-4xl font-bold mb-6">
-                Ready to Build Something <span className="gradient-text">Amazing</span>?
-              </h2>
-              <p className="text-xl text-gray-300 mb-8">
-                I&apos;m always excited to work on innovative projects and collaborate with like-minded individuals.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/projects" className="btn">
-                  View My Projects
-                </Link>
-                <Link href="/contact" className="btn bg-primary text-black border-primary hover:bg-secondary hover:border-secondary">
-                  Get In Touch
-                </Link>
-              </div>
-            </FadeInOnScroll>
-          </div>
-        </section>
+        {/* Spacing Section */}
+        <section className="py-10"></section>
       </main>
       
       <Footer />

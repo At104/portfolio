@@ -3,13 +3,13 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-orange-900/30 bg-gradient-to-br from-orange-950/20 to-amber-950/20">
+    <footer className="border-t border-orange-900/30 bg-gradient-to-br from-orange-950/25 to-amber-950/25">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Brand */}
           <div className="text-center md:text-left">
             <h3 className="text-xl font-bold gradient-text mb-2">Atul Rao</h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-sm" style={{color: 'rgb(var(--muted))'}}>
               Software Engineering Student at McMaster University
             </p>
           </div>
@@ -45,7 +45,7 @@ export default function Footer() {
         
         {/* Copyright */}
         <div className="border-t border-orange-900/30 mt-6 pt-6 text-center">
-          <p className="text-gray-400 text-sm">
+          <p className="text-sm" style={{color: 'rgb(var(--muted))'}}>
             © {new Date().getFullYear()} Atul Rao. Built with Next.js & Tailwind CSS
           </p>
         </div>

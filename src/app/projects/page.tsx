@@ -49,7 +49,7 @@ export default function Projects() {
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 My <span className="gradient-text">Projects</span>
               </h1>
-              <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+              <p className="text-xl mb-12 max-w-3xl mx-auto" style={{color: 'rgb(var(--muted))'}}>
                 A collection of projects showcasing my skills in software development, 
                 from Discord bots to robotics and web applications.
               </p>
@@ -90,7 +90,7 @@ export default function Projects() {
                       {project.title}
                     </h3>
                     
-                    <p className="text-gray-400 text-sm leading-relaxed mb-4 flex-grow">
+                    <p className="text-sm leading-relaxed mb-4 flex-grow" style={{color: 'var(--muted)'}}>
                       {project.description}
                     </p>
                     
@@ -123,7 +123,7 @@ export default function Projects() {
               <h2 className="text-4xl font-bold mb-6">
                 Let&apos;s Build Something <span className="gradient-text">Together</span>
               </h2>
-              <p className="text-xl text-gray-300 mb-8">
+              <p className="text-xl mb-8" style={{color: 'rgb(var(--muted))'}}>
                 I&apos;m always open to discussing new opportunities and interesting projects.
               </p>
               <Link href="/contact" className="btn bg-primary text-black border-primary hover:bg-secondary hover:border-secondary">
