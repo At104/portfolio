@@ -2,6 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  
+  experimental: {
+    optimizePackageImports: ['@fortawesome/react-fontawesome', '@fortawesome/free-solid-svg-icons', '@fortawesome/free-brands-svg-icons'],
+  },
+  
   images: {
     remotePatterns: [
       {
@@ -17,10 +22,20 @@ const nextConfig: NextConfig = {
         hostname: 'avatars.githubusercontent.com',
       }
     ],
-    formats: ['image/webp'],
+    formats: ['image/avif', 'image/webp'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    minimumCacheTTL: 60,
   },
-  // Configure custom paths for static assets if needed
-  // assetPrefix: process.env.NODE_ENV === 'production' ? '/at104.github.io/' : '',
+  
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'],
+    } : false,
+  },
+  
+  compress: true,
+  poweredByHeader: false,
 };
 
 export default nextConfig;

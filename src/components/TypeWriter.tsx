@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 
 interface TypeWriterProps {
   texts: string[];
@@ -10,7 +10,11 @@ interface TypeWriterProps {
   className?: string;
 }
 
-export default function TypeWriter({ texts, speed = 100, delay = 2000, initialDelay = 0, className = "" }: TypeWriterProps) {
+/**
+ * Optimized TypeWriter component with memo
+ * Uses efficient state management and cleanup for smooth animations
+ */
+const TypeWriter = memo(function TypeWriter({ texts, speed = 100, delay = 2000, initialDelay = 0, className = "" }: TypeWriterProps) {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -74,4 +78,6 @@ export default function TypeWriter({ texts, speed = 100, delay = 2000, initialDe
       <span className="animate-pulse">|</span>
     </span>
   );
-}
+});
+
+export default TypeWriter;

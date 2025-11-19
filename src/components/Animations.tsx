@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ReactNode } from "react";
+import { ReactNode, memo } from "react";
 
 interface FadeInOnScrollProps {
   children: ReactNode;
@@ -12,7 +12,12 @@ interface FadeInOnScrollProps {
   className?: string;
 }
 
-export function FadeInOnScroll({ 
+/**
+ * Optimized FadeInOnScroll component with memo to prevent unnecessary re-renders
+ * Uses Intersection Observer for efficient scroll detection
+ * Only animates once (triggerOnce: true) to reduce computational cost
+ */
+export const FadeInOnScroll = memo(function FadeInOnScroll({ 
   children, 
   delay = 0, 
   duration = 0.6, 
@@ -21,7 +26,7 @@ export function FadeInOnScroll({
 }: FadeInOnScrollProps) {
   const { ref, inView } = useInView({
     threshold: 0.1,
-    triggerOnce: true,
+    triggerOnce: true, // Only trigger once for better performance
     rootMargin: "0px 0px -50px 0px"
   });
 
@@ -54,7 +59,7 @@ export function FadeInOnScroll({
       {children}
     </motion.div>
   );
-}
+});
 
 interface StaggerContainerProps {
   children: ReactNode;
@@ -62,7 +67,11 @@ interface StaggerContainerProps {
   className?: string;
 }
 
-export function StaggerContainer({ 
+/**
+ * Optimized StaggerContainer with memo
+ * Animates children in sequence for smooth visual effects
+ */
+export const StaggerContainer = memo(function StaggerContainer({ 
   children, 
   staggerDelay = 0.1,
   className = ""
@@ -85,7 +94,7 @@ export function StaggerContainer({
       {children}
     </motion.div>
   );
-}
+});
 
 interface ScaleOnHoverProps {
   children: ReactNode;
@@ -93,7 +102,11 @@ interface ScaleOnHoverProps {
   className?: string;
 }
 
-export function ScaleOnHover({ 
+/**
+ * Optimized ScaleOnHover with memo
+ * Uses spring animation for natural feel with optimized parameters
+ */
+export const ScaleOnHover = memo(function ScaleOnHover({ 
   children, 
   scale = 1.05,
   className = ""
@@ -107,4 +120,4 @@ export function ScaleOnHover({
       {children}
     </motion.div>
   );
-}
+});
