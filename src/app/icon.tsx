@@ -7,6 +7,7 @@ export const size = {
 export const contentType = 'image/png'
  
 export default function Icon() {
+  //"A" Letter png icon for the favicon
   return new ImageResponse(
     (
       <div

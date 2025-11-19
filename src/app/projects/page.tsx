@@ -13,7 +13,7 @@ export default function Projects() {
       title: "McMaster iGEM 2025 Wiki",
       description: "Developed the official wiki website for McMaster University's iGEM team, consolidating cutting-edge synthetic biology research presented at the international conference. Features comprehensive documentation of lab work, methodology, and project outcomes.",
       image: "/images/reactimg.jpeg",
-      technologies: ["React", "Next.js", "Tailwind CSS", "Wiki.js"],
+      technologies: ["React", "Vite", "Bootstrap", "GitLab"],
       github: "https://2025.igem.wiki/mcmaster-canada/",
       demo: null,
       linkType: "website"
@@ -23,7 +23,7 @@ export default function Projects() {
       title: "PRISM",
       description: "Machine learning framework predicting drug mechanisms of action from single-cell RNA data. Combines contrastive learning between small molecules and cellular responses to accelerate drug discovery, analyzing 95M+ transcriptomes for breakthrough compound interactions.",
       image: "/images/prismimg.jpg",
-      technologies: ["PyTorch", "Python", "AWS", "scikit-learn"],
+      technologies: ["PyTorch", "Docker", "AWS", "scikit-learn", "FastAPI"],
       github: "https://github.com/hackbio-ca/PRISM",
       demo: null,
       linkType: "github"
@@ -63,8 +63,7 @@ export default function Projects() {
                 My <span className="gradient-text">Projects</span>
               </h1>
               <p className="text-xl mb-8 max-w-3xl mx-auto" style={{color: 'var(--foreground)'}}>
-                A collection of projects showcasing my skills in software development, 
-                from Discord bots to robotics and web applications.
+                A collection of projects showcasing my skills in various software development domains.
               </p>
             </FadeInOnScroll>
           </div>

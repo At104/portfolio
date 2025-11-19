@@ -15,13 +15,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {
-    // Only read from localStorage on initial mount
+    // Only read from localStorage initially
     const savedTheme = localStorage.getItem('theme') as Theme;
     if (savedTheme && (savedTheme === 'dark' || savedTheme === 'light')) {
       setTheme(savedTheme);
       document.documentElement.className = savedTheme === 'light' ? 'light' : '';
     } else {
-      // Ensure dark mode is set as default if no valid saved theme
+      // Set dark mode as default if no valid theme is saved
       setTheme('dark');
       document.documentElement.className = '';
       localStorage.setItem('theme', 'dark');

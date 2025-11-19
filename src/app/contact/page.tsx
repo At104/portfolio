@@ -39,7 +39,7 @@ export default function Contact() {
       iconType: "fontawesome",
       url: "https://github.com/At104",
       handle: "@At104",
-      description: "Check out my code and projects",
+      description: "Check out my projects and code",
     },
     {
       name: "LinkedIn",
@@ -55,7 +55,7 @@ export default function Contact() {
       iconType: "svg",
       url: "https://devpost.com/At104",
       handle: "@At104",
-      description: "View my hackathon achievements",
+      description: "View my hackathon projects",
     },
   ];
 

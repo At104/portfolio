@@ -40,8 +40,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'sans-serif'],
-        mono: ['var(--font-geist-mono)', 'monospace'],
+        sans: ['var(--font-geist-sans)', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        mono: ['var(--font-geist-mono)', 'Consolas', 'Monaco', 'Courier New', 'monospace'],
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.8s ease forwards',

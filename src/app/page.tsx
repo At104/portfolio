@@ -58,10 +58,6 @@ export default function Home() {
     ],
     "Technologies & Tools": [
       { 
-        name: "Machine Learning", 
-        icon: <span className="w-12 h-12 flex items-center justify-center text-3xl">🤖</span>
-      },
-      { 
         name: "Git", 
         icon: <FontAwesomeIcon icon={faGitAlt} className="w-12 h-12" />
       },
@@ -70,7 +66,7 @@ export default function Home() {
         icon: <FontAwesomeIcon icon={faAws} className="w-12 h-12" />
       },
       { 
-        name: "MS Azure", 
+        name: "Azure", 
         icon: <Image src="/icons/tech/Microsoft_Azure.svg" alt="MS Azure" width={48} height={48} className="w-12 h-12" />
       },
       { 
@@ -193,18 +189,11 @@ export default function Home() {
                   </p>
                   
                   <p className="text-lg leading-relaxed mb-6" style={{ color: 'var(--muted)' }}>
-                    These experiences inspired me to pursue a career in this field. I&apos;m currently in my second year of 
-                    Software Engineering at McMaster University, actively seeking internships for Summer 2026.
+                    These experiences inspired me to pursue a career in this field. I&apos;m currently in my 3rd year of 
+                    Software Engineering at McMaster University, actively seeking internships for 2026.
                   </p>
                   
-                  <div className="flex flex-wrap gap-3">
-                    <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
-                      🎓 McMaster University
-                    </span>
-                    <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium border border-primary/20">
-                      💼 Seeking Summer 2026 Internships
-                    </span>
-                  </div>
+                  
                 </div>
               </FadeInOnScroll>
               
