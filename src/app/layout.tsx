@@ -82,7 +82,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         
         {/* Theme color for browser chrome */}
-        <meta name="theme-color" content="#f97316" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#06b6d4" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
       </head>
       <body

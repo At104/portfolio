@@ -122,7 +122,7 @@ export default function Contact() {
         </section>
 
         {/* Connect Links */}
-        <section className="section py-20 pb-32 bg-gradient-to-br from-orange-950/25 to-amber-950/25">
+        <section className="section py-20 pb-32 bg-gradient-to-br from-cyan-950/20 to-cyan-900/10">
           <div className="max-w-6xl mx-auto">
             <FadeInOnScroll>
               <h2 className="section-title">Connect With Me</h2>

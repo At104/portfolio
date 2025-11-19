@@ -12,7 +12,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-colors duration-300" style={{ backgroundColor: 'rgba(var(--background-rgb), 0.9)', borderBottomColor: 'var(--border)' }}>
+    <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl border-b transition-all duration-300" style={{ 
+      backgroundColor: 'rgba(var(--background-rgb), 0.7)', 
+      borderBottomColor: 'rgba(6, 182, 212, 0.2)',
+      boxShadow: '0 4px 24px rgba(0, 0, 0, 0.1)'
+    }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">

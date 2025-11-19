@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FadeInOnScroll } from "@/components/Animations";
@@ -10,30 +10,43 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
+      title: "McMaster iGEM 2025 Wiki",
+      description: "Developed the official wiki website for McMaster University's iGEM team, consolidating cutting-edge synthetic biology research presented at the international conference. Features comprehensive documentation of lab work, methodology, and project outcomes.",
+      image: "/images/reactimg.jpeg",
+      technologies: ["React", "Next.js", "Tailwind CSS", "Wiki.js"],
+      github: "https://2025.igem.wiki/mcmaster-canada/",
+      demo: null,
+      linkType: "website"
+    },
+    {
+      id: 2,
+      title: "PRISM",
+      description: "Machine learning framework predicting drug mechanisms of action from single-cell RNA data. Combines contrastive learning between small molecules and cellular responses to accelerate drug discovery, analyzing 95M+ transcriptomes for breakthrough compound interactions.",
+      image: "/images/prismimg.jpg",
+      technologies: ["PyTorch", "Python", "AWS", "scikit-learn"],
+      github: "https://github.com/hackbio-ca/PRISM",
+      demo: null,
+      linkType: "github"
+    },
+    {
+      id: 3,
       title: "EconomyBot",
       description: "A versatile Discord bot designed to manage an economy system and track individual user data on a server. Features virtual currency tracking, user data management, moderation tools, and automatic role assignment based on user activities.",
       image: "/images/economybot.png",
       technologies: ["Python", "Discord.py", "JSON", "DynamoDB"],
       github: "https://github.com/At104/economybot",
       demo: null,
+      linkType: "github"
     },
     {
-      id: 2,
-      title: "FRC6854 Robotics Codebase",
-      description: "Comprehensive robotics codebase for FIRST Robotics Competition team 6854. Includes libraries for standard robot integration and competition-ready robot code for the 2022-23 season with hardware integration.",
-      image: "/images/robot.png",
-      technologies: ["Java", "WPILib", "Git", "Hardware Integration"],
-      github: "https://github.com/FRC6854/2023ChargedUpOfficial",
-      demo: null,
-    },
-    {
-      id: 3,
+      id: 4,
       title: "MinuteMaster",
       description: "AI-powered meeting assistant that transforms recordings into structured meeting minutes. Features smart audio identification, automatic transcription with speaker recognition, and AI-generated summaries with action items highlighted.",
       image: "/images/minutemaster.png",
       technologies: ["Next.js", "React", "TailwindCSS", "OpenAI", "Clerk", "Amazon S3"],
       github: "https://github.com/farazkabbo/Geesehacks2025",
       demo: null,
+      linkType: "github"
     },
   ];
 
@@ -43,13 +56,13 @@ export default function Projects() {
       
       <main className="min-h-screen pt-24">
         {/* Header Section */}
-        <section className="section py-20">
+        <section className="section py-16 pb-8">
           <div className="max-w-6xl mx-auto text-center">
             <FadeInOnScroll>
               <h1 className="text-5xl md:text-7xl font-bold mb-6">
                 My <span className="gradient-text">Projects</span>
               </h1>
-              <p className="text-xl mb-12 max-w-3xl mx-auto" style={{color: 'rgb(var(--muted))'}}>
+              <p className="text-xl mb-8 max-w-3xl mx-auto" style={{color: 'var(--foreground)'}}>
                 A collection of projects showcasing my skills in software development, 
                 from Discord bots to robotics and web applications.
               </p>
@@ -58,22 +71,22 @@ export default function Projects() {
         </section>
 
         {/* Projects Grid */}
-        <section className="section py-20">
+        <section className="section pt-8 pb-20">
           <div className="max-w-6xl mx-auto">
             <FadeInOnScroll>
-              <h2 className="text-3xl font-bold mb-12 text-center gradient-text">
+              <h2 className="text-3xl font-bold mb-8 text-center gradient-text">
                 Featured Work
               </h2>
             </FadeInOnScroll>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="flex flex-wrap gap-8 justify-center">
               {projects.map((project, index) => (
                 <FadeInOnScroll key={project.id} delay={index * 100}>
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="card group cursor-pointer h-full flex flex-col hover:scale-105 transition-transform duration-300"
+                    className="card group cursor-pointer h-full flex flex-col hover:scale-105 transition-transform duration-300 w-full max-w-sm"
                   >
                     <div className="relative overflow-hidden rounded-lg mb-6">
                       <Image
@@ -106,8 +119,10 @@ export default function Projects() {
                     </div>
                     
                     <div className="flex gap-3">
-                      <FontAwesomeIcon icon={faGithub} className="w-5 h-5 text-primary" />
-                      <span className="text-primary text-sm font-medium">View on GitHub</span>
+                      <FontAwesomeIcon icon={project.linkType === "website" ? faGlobe : faGithub} className="w-5 h-5 text-primary" />
+                      <span className="text-primary text-sm font-medium">
+                        {project.linkType === "website" ? "View Website" : "View on GitHub"}
+                      </span>
                     </div>
                   </a>
                 </FadeInOnScroll>
@@ -116,22 +131,6 @@ export default function Projects() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="section py-20">
-          <div className="max-w-4xl mx-auto text-center">
-            <FadeInOnScroll>
-              <h2 className="text-4xl font-bold mb-6">
-                Let&apos;s Build Something <span className="gradient-text">Together</span>
-              </h2>
-              <p className="text-xl mb-8" style={{color: 'rgb(var(--muted))'}}>
-                I&apos;m always open to discussing new opportunities and interesting projects.
-              </p>
-              <Link href="/contact" className="btn bg-primary text-black border-primary hover:bg-secondary hover:border-secondary">
-                Get In Touch
-              </Link>
-            </FadeInOnScroll>
-          </div>
-        </section>
       </main>
       
       <Footer />

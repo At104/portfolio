@@ -123,7 +123,7 @@ export default function Home() {
         <section className="min-h-screen flex items-center justify-center px-6 lg:px-8" style={{ backgroundColor: 'var(--background)', color: 'var(--foreground)' }}>
           <div className="max-w-4xl mx-auto text-center">
             <FadeInOnScroll>
-              <div className="relative w-48 h-48 mx-auto mb-8 rounded-full overflow-hidden border-4 border-primary">
+              <div className="relative w-48 h-48 mx-auto mb-12 rounded-full overflow-hidden border-4 border-primary shadow-2xl shadow-primary/30 hover:scale-105 transition-transform duration-500">
                 <Image 
                   src="/images/headshot.png"
                   alt="Atul Rao" 
@@ -132,9 +132,10 @@ export default function Home() {
                   priority
                   className="rounded-full"
                 />
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-transparent"></div>
               </div>
               
-              <div className="text-5xl md:text-7xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
+              <div className="text-6xl md:text-8xl font-extrabold mb-6 tracking-tight" style={{ color: 'var(--foreground)' }}>
                 Hi, I&apos;m <span className="gradient-text">Atul</span>
               </div>
               
@@ -161,14 +162,14 @@ export default function Home() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link href="/projects" className="btn flex items-center gap-2">
-                  View My Work
-                  <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
+                <Link href="/projects" className="group btn flex items-center gap-2 relative overflow-hidden">
+                  <span className="relative z-10">View My Work</span>
+                  <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 
-                <Link href="/contact" className="btn bg-primary text-black border-primary hover:bg-secondary hover:border-secondary flex items-center gap-2">
-                  Get In Touch
-                  <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4" />
+                <Link href="/contact" className="group btn bg-primary/10 text-primary border-primary hover:bg-primary hover:text-white flex items-center gap-2 relative overflow-hidden backdrop-blur-sm">
+                  <span className="relative z-10">Get In Touch</span>
+                  <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </FadeInOnScroll>
@@ -239,7 +240,7 @@ export default function Home() {
         </section>
 
         {/* Tech Stack Section */}
-        <section className="section py-20 bg-gradient-to-br from-primary/5 to-secondary/5 dark:from-orange-950/25 dark:to-amber-950/25">
+        <section className="section py-20 bg-gradient-to-br from-cyan-50/50 to-cyan-100/30 dark:from-cyan-950/20 dark:to-cyan-900/10">
           <div className="max-w-6xl mx-auto">
             <FadeInOnScroll>
               <h2 className="section-title">Tech Stack</h2>
@@ -271,13 +272,6 @@ export default function Home() {
               ))}
             </div>
             
-            <FadeInOnScroll delay={600}>
-              <div className="text-center mt-12">
-                <p style={{ color: 'var(--muted)' }}>
-                  Always learning and exploring new technologies to stay at the forefront of innovation.
-                </p>
-              </div>
-            </FadeInOnScroll>
           </div>
         </section>
 

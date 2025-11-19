@@ -10,14 +10,14 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#f97316', // Orange for both themes
-          dark: '#ea580c',
+          DEFAULT: '#06b6d4',
+          dark: '#0891b2',
         },
         secondary: {
-          DEFAULT: '#fb923c', // Lighter orange
-          dark: '#f97316',
+          DEFAULT: '#22d3ee',
+          dark: '#06b6d4',
         },
-        accent: '#fed7aa', // Very light orange
+        accent: '#67e8f9',
         background: {
           DEFAULT: '#ffffff', // Light mode background
           dark: '#000000', // Dark mode background
