@@ -121,12 +121,13 @@ export default function Home() {
             <FadeInOnScroll>
               <div className="relative w-48 h-48 mx-auto mb-12 rounded-full overflow-hidden border-4 border-primary shadow-2xl shadow-primary/30 hover:scale-105 transition-transform duration-500">
                 <Image 
-                  src="/images/headshot.png"
+                  src="/images/headshot.JPG"
                   alt="Atul Rao" 
                   fill
-                  style={{objectFit: 'cover'}}
+                  style={{objectFit: 'cover', objectPosition: 'center', transform: 'scale(1.4) translateX(5%) translateY(14%)'}}
                   priority
                   className="rounded-full"
+                  sizes="(max-width: 768px) 192px, 192px"
                 />
                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-transparent"></div>
               </div>

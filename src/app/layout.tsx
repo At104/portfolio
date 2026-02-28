@@ -35,20 +35,11 @@ export const metadata: Metadata = {
     title: "Atul Rao | Software Engineering Student",
     description: "Software Engineering Student at McMaster University passionate about building innovative solutions through cloud computing, machine learning, and robotics.",
     siteName: "Atul Rao Portfolio",
-    images: [
-      {
-        url: "/images/headshot.png",
-        width: 1200,
-        height: 630,
-        alt: "Atul Rao - Software Engineering Student",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Atul Rao | Software Engineering Student",
     description: "Software Engineering Student at McMaster University passionate about building innovative solutions.",
-    images: ["/images/headshot.png"],
   },
   robots: {
     index: true,
