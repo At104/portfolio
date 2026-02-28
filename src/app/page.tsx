@@ -124,7 +124,7 @@ export default function Home() {
                   src="/images/headshot.JPG"
                   alt="Atul Rao" 
                   fill
-                  style={{objectFit: 'cover', objectPosition: 'center', transform: 'scale(1.4) translateX(5%) translateY(14%)'}}
+                  style={{objectFit: 'cover', objectPosition: 'center', transform: 'scale(1.4) translateX(5.2%) translateY(13%)'}}
                   priority
                   className="rounded-full"
                   sizes="(max-width: 768px) 192px, 192px"

@@ -13,7 +13,7 @@ export default function Projects() {
       title: "SwiftHealth",
       description: "AI emergency triage system pre-screening patients and prioritizing critical cases in real-time. Reduces wait times and physician burnout with multi-language support.",
       image: "/images/swifthealth.png",
-      technologies: ["Next.js", "Python", "FastAPI", "Whisper"],
+      technologies: ["Next.js", "Node.js", "Python", "FastAPI", "Whisper","Ollama"],
       github: "https://github.com/At104/SwiftHealth",
       demo: null,
       linkType: "github"
@@ -43,7 +43,7 @@ export default function Projects() {
       title: "EconomyBot",
       description: "A versatile Discord bot designed to manage an economy system and track individual user data on a server. Features virtual currency tracking, user data management, moderation tools, and automatic role assignment based on user activities.",
       image: "/images/economybot.png",
-      technologies: ["Python", "Discord.py", "JSON", "DynamoDB"],
+      technologies: ["Python", "Discord.py", "JSON", "DynamoDB", "EC2"],
       github: "https://github.com/At104/economybot",
       demo: null,
       linkType: "github"
