@@ -1,6 +1,4 @@
-"use client";
-
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
 
@@ -20,7 +18,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold gradient-text">
+            <Link to="/" className="text-2xl font-bold gradient-text">
               Atul Rao
             </Link>
           </div>
@@ -28,21 +26,21 @@ export default function Navbar() {
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
               <Link 
-                href="/" 
+                to="/" 
                 className="hover:text-primary transition-colors duration-200 font-medium"
                 style={{ color: 'var(--foreground)' }}
               >
                 Home
               </Link>
               <Link 
-                href="/projects" 
+                to="/projects" 
                 className="hover:text-primary transition-colors duration-200 font-medium"
                 style={{ color: 'var(--foreground)' }}
               >
                 Projects
               </Link>
               <Link 
-                href="/contact" 
+                to="/contact" 
                 className="hover:text-primary transition-colors duration-200 font-medium"
                 style={{ color: 'var(--foreground)' }}
               >
@@ -76,7 +74,7 @@ export default function Navbar() {
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 backdrop-blur-md border-t" style={{ backgroundColor: 'rgba(var(--background-rgb), 0.9)', borderTopColor: 'var(--border)' }}>
               <Link 
-                href="/" 
+                to="/" 
                 className="block px-3 py-2 hover:text-primary transition-colors duration-200 font-medium"
                 style={{ color: 'var(--foreground)' }}
                 onClick={() => setIsMenuOpen(false)}
@@ -84,7 +82,7 @@ export default function Navbar() {
                 Home
               </Link>
               <Link 
-                href="/projects" 
+                to="/projects" 
                 className="block px-3 py-2 hover:text-primary transition-colors duration-200 font-medium"
                 style={{ color: 'var(--foreground)' }}
                 onClick={() => setIsMenuOpen(false)}
@@ -92,7 +90,7 @@ export default function Navbar() {
                 Projects
               </Link>
               <Link 
-                href="/contact" 
+                to="/contact" 
                 className="block px-3 py-2 hover:text-primary transition-colors duration-200 font-medium"
                 style={{ color: 'var(--foreground)' }}
                 onClick={() => setIsMenuOpen(false)}

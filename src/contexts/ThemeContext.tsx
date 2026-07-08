@@ -1,5 +1,3 @@
-'use client';
-
 import { createContext, useContext, useEffect, useState } from 'react';
 
 type Theme = 'dark' | 'light';
@@ -12,27 +10,19 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark');
+  // Initialize from storage so state matches the class the inline script in
+  // index.html already applied before paint (dark is the default).
+  const [theme, setTheme] = useState<Theme>(() =>
+    localStorage.getItem('theme') === 'light' ? 'light' : 'dark'
+  );
 
   useEffect(() => {
-    // Only read from localStorage initially
-    const savedTheme = localStorage.getItem('theme') as Theme;
-    if (savedTheme && (savedTheme === 'dark' || savedTheme === 'light')) {
-      setTheme(savedTheme);
-      document.documentElement.className = savedTheme === 'light' ? 'light' : '';
-    } else {
-      // Set dark mode as default if no valid theme is saved
-      setTheme('dark');
-      document.documentElement.className = '';
-      localStorage.setItem('theme', 'dark');
-    }
-  }, []);
+    document.documentElement.className = theme === 'light' ? 'light' : '';
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.className = newTheme === 'light' ? 'light' : '';
+    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
   };
 
   return (
