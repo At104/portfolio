@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+    <!-- Primary meta tags -->
+    <title>Atul Rao | Portfolio</title>
+    <meta
+      name="description"
+      content="Software Engineering Student at McMaster University passionate about building innovative solutions through cloud computing, machine learning, and robotics."
+    />
+    <meta
+      name="keywords"
+      content="portfolio, software engineer, web development, react, Atul Rao, McMaster University, cloud computing, machine learning"
+    />
+    <meta name="author" content="Atul Rao" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Theme color for browser chrome -->
+    <meta name="theme-color" content="#06b6d4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://atulrao.me" />
+    <meta property="og:title" content="Atul Rao | Software Engineering Student" />
+    <meta
+      property="og:description"
+      content="Software Engineering Student at McMaster University passionate about building innovative solutions through cloud computing, machine learning, and robotics."
+    />
+    <meta property="og:site_name" content="Atul Rao Portfolio" />
+    <meta property="og:image" content="https://atulrao.me/og-image.svg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Atul Rao | Software Engineering Student" />
+    <meta
+      name="twitter:description"
+      content="Software Engineering Student at McMaster University passionate about building innovative solutions."
+    />
+    <meta name="twitter:image" content="https://atulrao.me/og-image.svg" />
+
+    <!-- Set theme before paint to avoid a flash of the wrong theme -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          document.documentElement.className = saved === "light" ? "light" : "";
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
