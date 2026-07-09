@@ -1,10 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { faGlobe, faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { FadeInOnScroll } from "@/components/Animations";
+import { BlockReveal } from "@/components/BlockReveal";
 import { projects } from "@/content/projects";
+import { colorByIndex } from "@/lib/tetromino";
 
 export default function Projects() {
   return (
@@ -17,81 +18,52 @@ export default function Projects() {
 
       <Navbar />
 
-      <main className="min-h-screen pt-24">
-        {/* Header Section */}
-        <section className="section py-16 pb-8">
-          <div className="max-w-6xl mx-auto text-center">
-            <FadeInOnScroll>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                My <span className="gradient-text">Projects</span>
-              </h1>
-              <p className="text-xl mb-8 max-w-3xl mx-auto" style={{ color: "var(--foreground)" }}>
-                A collection of projects showcasing my skills in various software development domains.
-              </p>
-            </FadeInOnScroll>
-          </div>
-        </section>
+      <main className="mx-auto max-w-6xl px-6 pb-8 pt-32">
+        <p className="hud mb-3">01 / Projects</p>
+        <h1 className="mb-12 text-4xl md:text-5xl">Things I&apos;ve built</h1>
 
-        {/* Projects Grid */}
-        <section className="section pt-8 pb-20">
-          <div className="max-w-6xl mx-auto">
-            <FadeInOnScroll>
-              <h2 className="text-3xl font-bold mb-8 text-center gradient-text">
-                Featured Work
-              </h2>
-            </FadeInOnScroll>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project, i) => (
+            <BlockReveal key={project.id} delay={i * 80} className="h-full">
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="brick brick-accent flex h-full flex-col overflow-hidden"
+                style={{ ["--accent" as string]: colorByIndex(i) }}
+              >
+                <div className="aspect-[16/10] overflow-hidden border-b-2 border-[color:var(--color-ink)]">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4 justify-items-center">
-              {projects.map((project, index) => (
-                <FadeInOnScroll key={project.id} delay={index * 100}>
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="card group cursor-pointer h-full flex flex-col hover:scale-105 transition-transform duration-300 w-full max-w-sm"
-                  >
-                    <div className="relative overflow-hidden rounded-lg mb-4">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        width={400}
-                        height={250}
-                        className="transition-transform duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </div>
+                <div className="flex flex-1 flex-col p-5">
+                  <h2 className="mb-2 text-xl">{project.title}</h2>
+                  <p className="mb-4 flex-1 text-sm leading-relaxed text-[color:var(--color-ink-soft)]">
+                    {project.description}
+                  </p>
 
-                    <h3 className="text-lg font-bold mb-2 gradient-text">
-                      {project.title}
-                    </h3>
-
-                    <p className="text-xs leading-relaxed mb-3 flex-grow" style={{ color: "var(--muted)" }}>
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-1.5 mb-3">
-                      {project.technologies.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-0.5 bg-primary/10 text-primary rounded text-xs font-medium border border-primary/20"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex gap-3">
-                      <FontAwesomeIcon icon={project.linkType === "website" ? faGlobe : faGithub} className="w-5 h-5 text-primary" />
-                      <span className="text-primary text-sm font-medium">
-                        {project.linkType === "website" ? "View Website" : "View on GitHub"}
+                  <div className="mb-4 flex flex-wrap gap-1.5">
+                    {project.technologies.map((tech) => (
+                      <span key={tech} className="hud rounded bg-[color:var(--color-bg)] px-2 py-1 text-[0.6rem]">
+                        {tech}
                       </span>
-                    </div>
-                  </a>
-                </FadeInOnScroll>
-              ))}
-            </div>
-          </div>
-        </section>
+                    ))}
+                  </div>
+
+                  <span className="hud flex items-center gap-2">
+                    <FontAwesomeIcon icon={project.linkType === "website" ? faGlobe : faGithub} className="h-4 w-4" />
+                    {project.linkType === "website" ? "Visit site" : "View code"}
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="h-3 w-3" />
+                  </span>
+                </div>
+              </a>
+            </BlockReveal>
+          ))}
+        </div>
       </main>
 
       <Footer />

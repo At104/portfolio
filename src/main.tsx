@@ -7,6 +7,9 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 config.autoAddCss = false;
 
+// Display font (self-hosted)
+import "@fontsource-variable/space-grotesk";
+
 import "./index.css";
 import App from "./App";
 import { ThemeProvider } from "@/contexts/ThemeContext";

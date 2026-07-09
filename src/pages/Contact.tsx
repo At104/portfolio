@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { FadeInOnScroll } from "@/components/Animations";
+import { BlockReveal } from "@/components/BlockReveal";
 import { contactMethods, socialLinks } from "@/content/contact";
+import { colorByIndex } from "@/lib/tetromino";
 
 export default function Contact() {
   return (
@@ -15,115 +16,63 @@ export default function Contact() {
 
       <Navbar />
 
-      <main className="min-h-screen pt-24">
-        {/* Header Section */}
-        <section className="section py-20">
-          <div className="max-w-4xl mx-auto text-center">
-            <FadeInOnScroll>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                Get <span className="gradient-text">In Touch</span>
-              </h1>
-              <p className="text-xl mb-12 max-w-3xl mx-auto" style={{ color: "var(--muted)" }}>
-                I&apos;m always open to discussing new opportunities, interesting projects,
-                or just having a conversation about technology and innovation.
-              </p>
-            </FadeInOnScroll>
-          </div>
-        </section>
+      <main className="mx-auto max-w-5xl px-6 pb-8 pt-32">
+        <p className="hud mb-3">01 / Contact</p>
+        <h1 className="mb-4 text-4xl md:text-5xl">Let&apos;s connect</h1>
+        <p className="mb-12 max-w-2xl leading-relaxed text-[color:var(--color-ink-soft)]">
+          I&apos;m always open to new opportunities, interesting projects, or just a
+          conversation about technology.
+        </p>
 
-        {/* Get In Touch */}
-        <section className="section py-20">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              {contactMethods.map((method, index) => (
-                <FadeInOnScroll key={method.title} delay={index * 50}>
-                  <div className="card text-center group">
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors duration-300">
-                      <FontAwesomeIcon icon={method.icon} className="w-8 h-8 text-primary" />
-                    </div>
+        <div className="mb-12 grid gap-5 md:grid-cols-3">
+          {contactMethods.map((method, i) => (
+            <BlockReveal key={method.title} delay={i * 80}>
+              <div
+                className="brick brick-accent flex h-full flex-col p-6"
+                style={{ ["--accent" as string]: colorByIndex(i) }}
+              >
+                <FontAwesomeIcon icon={method.icon} className="mb-4 h-6 w-6" />
+                <p className="hud mb-1">{method.title}</p>
+                <p className="mb-2 text-sm text-[color:var(--color-ink-soft)]">{method.description}</p>
+                {method.link ? (
+                  <a href={method.link} className="mt-auto font-medium underline decoration-2 underline-offset-4">
+                    {method.value}
+                  </a>
+                ) : (
+                  <span className="mt-auto font-medium">{method.value}</span>
+                )}
+              </div>
+            </BlockReveal>
+          ))}
+        </div>
 
-                    <h3 className="text-xl font-bold mb-2 gradient-text">
-                      {method.title}
-                    </h3>
-
-                    <p className="text-sm mb-3" style={{ color: "var(--muted)" }}>
-                      {method.description}
-                    </p>
-
-                    {method.link ? (
-                      <a
-                        href={method.link}
-                        className="hover:text-primary transition-colors duration-200 font-medium"
-                        style={{ color: "var(--foreground)" }}
-                      >
-                        {method.value}
-                      </a>
-                    ) : (
-                      <span className="font-medium" style={{ color: "var(--foreground)" }}>
-                        {method.value}
-                      </span>
-                    )}
-                  </div>
-                </FadeInOnScroll>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Connect Links */}
-        <section
-          className="section py-20 pb-32"
-          style={{
-            background:
-              "linear-gradient(to bottom right, rgba(6, 182, 212, 0.06), rgba(6, 182, 212, 0.02))",
-          }}
-        >
-          <div className="max-w-6xl mx-auto">
-            <FadeInOnScroll>
-              <h2 className="section-title">Connect With Me</h2>
-            </FadeInOnScroll>
-
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              {socialLinks.map((social, index) => (
-                <FadeInOnScroll key={social.name} delay={index * 50}>
-                  <div className="tech-card group">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors duration-300">
-                        {social.icon.type === "fa" ? (
-                          <FontAwesomeIcon icon={social.icon.icon} className="w-6 h-6 text-primary" />
-                        ) : (
-                          <img src={social.icon.src} alt={social.name} width={24} height={24} className="w-6 h-6" />
-                        )}
-                      </div>
-
-                      <div className="flex-grow">
-                        <h3 className="text-lg font-bold mb-1 gradient-text">
-                          {social.name}
-                        </h3>
-
-                        <p className="text-sm mb-2" style={{ color: "var(--muted)" }}>
-                          {social.description}
-                        </p>
-
-                        <a
-                          href={social.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-primary hover:text-secondary transition-colors duration-200 text-sm font-medium"
-                        >
-                          {social.handle}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </FadeInOnScroll>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Spacing Section */}
-        <section className="py-10"></section>
+        <p className="hud mb-6">02 / Elsewhere</p>
+        <div className="grid gap-5 md:grid-cols-3">
+          {socialLinks.map((social, i) => (
+            <BlockReveal key={social.name} delay={i * 80}>
+              <a
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="brick brick-accent flex h-full items-start gap-4 p-6"
+                style={{ ["--accent" as string]: colorByIndex(i + 3) }}
+              >
+                <span className="grid h-10 w-10 shrink-0 place-items-center">
+                  {social.icon.type === "fa" ? (
+                    <FontAwesomeIcon icon={social.icon.icon} className="h-6 w-6" />
+                  ) : (
+                    <img src={social.icon.src} alt={social.name} width={24} height={24} className="h-6 w-6" />
+                  )}
+                </span>
+                <span>
+                  <span className="block font-medium">{social.name}</span>
+                  <span className="mb-1 block text-sm text-[color:var(--color-ink-soft)]">{social.description}</span>
+                  <span className="hud">{social.handle}</span>
+                </span>
+              </a>
+            </BlockReveal>
+          ))}
+        </div>
       </main>
 
       <Footer />
