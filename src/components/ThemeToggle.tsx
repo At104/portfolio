@@ -19,7 +19,7 @@ export default function ThemeToggle() {
       <FontAwesomeIcon
         icon={theme === "dark" ? faSun : faMoon}
         className="h-5 w-5"
-        style={{ color: "var(--color-tetro-i)" }}
+        style={{ color: "var(--color-primary)" }}
       />
     </button>
   );

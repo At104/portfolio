@@ -11,20 +11,19 @@ export default function Contact() {
       <title>Contact | Atul Rao</title>
       <meta
         name="description"
-        content="Get in touch with Atul Rao — open to Summer 2026 internships and opportunities in software, cloud, and machine learning."
+        content="Get in touch with Atul Rao - open to Summer 2027 internships and opportunities in software, cloud, and machine learning."
       />
 
       <Navbar />
 
       <main className="mx-auto max-w-5xl px-6 pb-8 pt-32">
         <p className="hud mb-3">01 / Contact</p>
-        <h1 className="mb-4 text-4xl md:text-5xl">Let&apos;s connect</h1>
+        <h1 className="mb-4 text-4xl md:text-5xl">Let&apos;s Connect</h1>
         <p className="mb-12 max-w-2xl leading-relaxed text-[color:var(--color-ink-soft)]">
-          I&apos;m always open to new opportunities, interesting projects, or just a
-          conversation about technology.
+          I&apos;m always open to new opportunities, interesting projects, or just a casual conversation.
         </p>
 
-        <div className="mb-12 grid gap-5 md:grid-cols-3">
+        <div className="mb-12 grid gap-5 sm:grid-cols-2">
           {contactMethods.map((method, i) => (
             <BlockReveal key={method.title} delay={i * 80}>
               <div
@@ -47,7 +46,7 @@ export default function Contact() {
         </div>
 
         <p className="hud mb-6">02 / Elsewhere</p>
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2">
           {socialLinks.map((social, i) => (
             <BlockReveal key={social.name} delay={i * 80}>
               <a

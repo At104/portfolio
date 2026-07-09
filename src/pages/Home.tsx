@@ -50,13 +50,38 @@ export default function Home() {
             <BlockReveal className="brick brick-accent p-7">
               <div style={{ ["--accent" as string]: colorByIndex(0) }}>
                 <h2 className="mb-4 text-2xl">Hi, I&apos;m Atul.</h2>
-                <p className="mb-4 leading-relaxed text-[color:var(--color-ink-soft)]">
-                  I&apos;ve been surrounded by technology my whole life — games, movies, the
-                  internet — and have always been fascinated by its power to change the world.
-                </p>
+
+                <div className="mb-5 space-y-1">
+                  <p className="font-medium">
+                    Embedded Engineering @{" "}
+                    <a
+                      href="https://www.geotab.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-2 underline-offset-2 transition-colors hover:text-[color:var(--color-primary)]"
+                    >
+                      Geotab
+                    </a>
+                  </p>
+                  <p className="text-sm text-[color:var(--color-ink-soft)]">
+                    Prev · Integration Software Developer @{" "}
+                    <a
+                      href="https://www.nbfc.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline decoration-2 underline-offset-2 transition-colors hover:text-[color:var(--color-primary)]"
+                    >
+                      Northbridge (NBFC)
+                    </a>
+                  </p>
+                </div>
+
                 <p className="leading-relaxed text-[color:var(--color-ink-soft)]">
-                  I&apos;m a 3rd-year Software Engineering student at McMaster University,
-                  actively seeking internships for 2026.
+                  I&apos;m a Software Engineering student at McMaster University who
+                  likes turning hard problems into things that actually ship, from
+                  embedded firmware to the cloud. I gravitate toward the seam where
+                  hardware meets software, and I&apos;m currently looking for Summer
+                  2027 internships to build something that matters.
                 </p>
               </div>
             </BlockReveal>

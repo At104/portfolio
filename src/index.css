@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 /*
- * Tetris-themed design system — a clean, light playfield.
+ * Tetris-themed design system - a clean, light playfield.
  * Color comes only from the seven tetromino pieces (see src/lib/tetromino.ts),
  * used sparingly against an off-white grid.
  */
 @theme {
-  /* Surfaces & ink */
-  --color-bg: #fafafa;
-  --color-surface: #ffffff;
-  --color-grid: #e5e5e5;
+  /* Surfaces & ink (warm, tan-tinted light theme) */
+  --color-bg: #f3eee2;
+  --color-surface: #fbf8f1;
+  --color-grid: #e4dcca;
   --color-ink: #1a1a1a;
   --color-ink-soft: #6b6b6b;
 
@@ -21,6 +21,9 @@
   --color-tetro-z: #ef4444;
   --color-tetro-j: #3b82f6;
   --color-tetro-l: #f97316;
+
+  /* Primary accent (purple T-piece) */
+  --color-primary: var(--color-tetro-t);
 
   /* Type */
   --font-display: "Space Grotesk Variable", system-ui, sans-serif;
@@ -39,7 +42,7 @@
   --block-shadow: rgba(26, 26, 26, 0.9);
 }
 
-/* Dark theme — same playfield, inverted surfaces. Piece colors are unchanged
+/* Dark theme - same playfield, inverted surfaces. Piece colors are unchanged
  * (they pop on dark too); the brick shadow flips to a light offset since a
  * black shadow is invisible against a near-black background. */
 .dark {
@@ -53,9 +56,8 @@
 
 html {
   scroll-behavior: smooth;
-  /* Firefox scrollbar fallback (the I-piece can't be fully styled here) */
-  scrollbar-color: var(--color-tetro-i) var(--color-bg);
-  scrollbar-width: thin;
+  /* Native scrollbar hidden — replaced by the custom I-piece (ScrollIndicator) */
+  scrollbar-width: none;
 }
 
 body {
@@ -66,41 +68,51 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Faint square grid — the playfield the whole page sits on */
+  /* Faint square grid - the playfield the whole page sits on */
   background-image:
     linear-gradient(to right, var(--color-grid) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
   background-size: var(--cell) var(--cell);
 }
 
-/* ── The cyan I-piece scrollbar (WebKit/Blink) ───────────────────── */
+/* Fade colors when switching light/dark themes */
+*,
+*::before,
+*::after {
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    color 0.35s ease,
+    box-shadow 0.35s ease,
+    fill 0.35s ease;
+}
+
+/* Hide the native scrollbar (WebKit/Blink) — the custom I-piece replaces it */
 ::-webkit-scrollbar {
-  width: 14px;
-  height: 14px;
+  width: 0;
+  height: 0;
+  background: transparent;
 }
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-  border-left: 1px solid var(--color-grid);
+
+/* ── Custom scroll indicator: a blue 4×1 I-piece ─────────────────── */
+.scroll-piece {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 15px;
+  cursor: grab;
 }
-::-webkit-scrollbar-thumb {
+.scroll-piece:active {
+  cursor: grabbing;
+}
+.scroll-cell {
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
   background-color: var(--color-tetro-i);
-  border: 2px solid var(--color-bg);
-  border-radius: 2px;
-  /* Segment lines that split the thumb into stacked tetromino cells */
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 0,
-    rgba(0, 0, 0, 0) calc(var(--cell) - 2px),
-    rgba(0, 0, 0, 0.18) calc(var(--cell) - 2px),
-    rgba(0, 0, 0, 0.18) var(--cell)
-  );
-  /* Beveled block edges */
   box-shadow:
-    inset 2px 2px 0 rgba(255, 255, 255, 0.55),
-    inset -2px -2px 0 rgba(0, 0, 0, 0.22);
-}
-::-webkit-scrollbar-thumb:hover {
-  filter: brightness(1.05);
+    inset 2px 2px 0 rgba(255, 255, 255, 0.5),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.25);
 }
 
 /* ── Typography ──────────────────────────────────────────────────── */
@@ -128,9 +140,10 @@ h3 {
   background: var(--color-surface);
   border: 2px solid var(--color-ink);
   border-radius: 4px;
-  /* Chunky offset shadow — the "locked piece" look */
+  /* Chunky offset shadow - the "locked piece" look */
   box-shadow: 6px 6px 0 var(--block-shadow);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.2s ease,
+    background-color 0.35s ease, border-color 0.35s ease;
 }
 .brick:hover {
   transform: translate(-2px, -2px);
@@ -139,7 +152,7 @@ h3 {
 
 /* Thin accent bar keyed to a piece color: set --accent on the element */
 .brick-accent {
-  border-top: 6px solid var(--accent, var(--color-tetro-i));
+  border-top: 6px solid var(--accent, var(--color-primary));
 }
 
 /* ── Blocky button ───────────────────────────────────────────────── */
@@ -157,7 +170,8 @@ h3 {
   border: 2px solid var(--color-ink);
   border-radius: 4px;
   box-shadow: 4px 4px 0 var(--block-shadow);
-  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  transition: transform 0.12s ease, box-shadow 0.2s ease,
+    background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
 }
 .btn:hover {
   transform: translate(-2px, -2px);
@@ -180,5 +194,10 @@ h3 {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
   }
 }

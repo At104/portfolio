@@ -1,5 +1,5 @@
 import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { faEnvelope, faLocationDot, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 
 export interface ContactMethod {
@@ -19,18 +19,11 @@ export const contactMethods: ContactMethod[] = [
     link: null,
   },
   {
-    icon: faCalendarDays,
-    title: "Available",
-    description: "For Summer 2026 Internships",
-    value: "Open to All Opportunities",
-    link: null,
-  },
-  {
     icon: faEnvelope,
     title: "Email",
-    description: "Another Way to Reach Me",
-    value: "atul.rao664@gmail.com",
-    link: "mailto:atul.rao664@gmail.com",
+    description: "The Best Way to Reach Me",
+    value: "raoa33@mcmaster.ca",
+    link: "mailto:raoa33@mcmaster.ca",
   },
 ];
 
@@ -60,12 +53,5 @@ export const socialLinks: SocialLink[] = [
     url: "https://linkedin.com/in/atul5rao",
     handle: "atul5rao",
     description: "Let's connect professionally",
-  },
-  {
-    name: "Devpost",
-    icon: { type: "img", src: "/icons/tech/devpost.svg" },
-    url: "https://devpost.com/At104",
-    handle: "@At104",
-    description: "View my hackathon projects",
   },
 ];

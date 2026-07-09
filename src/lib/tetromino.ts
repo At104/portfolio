@@ -1,9 +1,9 @@
 /**
- * The seven tetromino piece colors — the only source of color in the design.
+ * The seven tetromino piece colors - the only source of color in the design.
  * Keys match the classic Tetris piece letters (I, O, T, S, Z, J, L).
  */
 export const TETROMINO = {
-  I: "#22d3ee", // cyan  — also the scrollbar
+  I: "#22d3ee", // cyan  - also the scrollbar
   O: "#facc15", // yellow
   T: "#a855f7", // purple
   S: "#22c55e", // green

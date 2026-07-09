@@ -10,7 +10,7 @@ interface BlockRevealProps {
 }
 
 /**
- * Reveals its children by "dropping" them into place from above and locking —
+ * Reveals its children by "dropping" them into place from above and locking -
  * the page building up out of tetromino blocks as you scroll. Fires once.
  * Respects prefers-reduced-motion (renders in place, no motion).
  */

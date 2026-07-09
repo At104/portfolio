@@ -1,10 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#06b6d4" />
-      <stop offset="1" stop-color="#22d3ee" />
+    <linearGradient id="p" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c084fc" />
+      <stop offset="1" stop-color="#a855f7" />
     </linearGradient>
   </defs>
-  <rect width="32" height="32" rx="6" fill="url(#g)" />
-  <text x="16" y="23" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="#ffffff" text-anchor="middle">A</text>
+
+  <!-- Purple T-tetromino (primary accent), beveled like the site's blocks -->
+  <g fill="url(#p)">
+    <rect x="1" y="6.25" width="9" height="9" rx="1.6" />
+    <rect x="11.5" y="6.25" width="9" height="9" rx="1.6" />
+    <rect x="22" y="6.25" width="9" height="9" rx="1.6" />
+    <rect x="11.5" y="16.75" width="9" height="9" rx="1.6" />
+  </g>
+
+  <!-- Top highlight on each cell for the beveled look -->
+  <g fill="#ffffff" opacity="0.35">
+    <rect x="1" y="6.25" width="9" height="2" rx="1" />
+    <rect x="11.5" y="6.25" width="9" height="2" rx="1" />
+    <rect x="22" y="6.25" width="9" height="2" rx="1" />
+    <rect x="11.5" y="16.75" width="9" height="2" rx="1" />
+  </g>
 </svg>

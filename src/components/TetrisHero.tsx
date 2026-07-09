@@ -69,7 +69,7 @@ export default function TetrisHero() {
   const reduce = useReducedMotion();
   const { words, maxGlobalCol } = useMemo(buildWords, []);
 
-  // When the last block has locked — used to time the tagline reveal.
+  // When the last block has locked - used to time the tagline reveal.
   const assemblyDone = reduce ? 0 : DROP_START + maxGlobalCol * DROP_STEP + 0.6;
 
   return (
@@ -117,9 +117,9 @@ export default function TetrisHero() {
         ))}
       </div>
 
-      {/* Tagline + scroll cue, revealed once the name has locked in */}
+      {/* Tagline, revealed once the name has locked in */}
       <motion.div
-        className="mt-10 flex flex-col items-center gap-6"
+        className="mt-10 flex flex-col items-center"
         initial={reduce ? false : { opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: assemblyDone }}
@@ -135,15 +135,6 @@ export default function TetrisHero() {
           delay={2200}
           initialDelay={0}
         />
-        <motion.div
-          className="hud flex flex-col items-center gap-1"
-          animate={reduce ? undefined : { y: [0, 6, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-          aria-hidden="true"
-        >
-          <span>scroll</span>
-          <span>▼</span>
-        </motion.div>
       </motion.div>
     </section>
   );

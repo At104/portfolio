@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 import { TETROMINO } from "@/lib/tetromino";
 
 const LINKS = [
-  { to: "/", label: "Home", color: TETROMINO.I },
-  { to: "/projects", label: "Projects", color: TETROMINO.T },
+  { to: "/", label: "Home", color: TETROMINO.T },
+  { to: "/projects", label: "Projects", color: TETROMINO.S },
   { to: "/contact", label: "Contacts", color: TETROMINO.L },
 ];
 

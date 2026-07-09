@@ -6,7 +6,7 @@ import { TETROMINO } from "@/lib/tetromino";
 const SOCIALS = [
   { href: "https://github.com/At104", label: "GitHub", icon: faGithub, color: TETROMINO.T },
   { href: "https://www.linkedin.com/in/atul5rao/", label: "LinkedIn", icon: faLinkedin, color: TETROMINO.J },
-  { href: "mailto:atul.rao664@gmail.com", label: "Email", icon: faEnvelope, color: TETROMINO.Z },
+  { href: "mailto:raoa33@mcmaster.ca", label: "Email", icon: faEnvelope, color: TETROMINO.Z },
 ];
 
 export default function Footer() {
@@ -32,7 +32,7 @@ export default function Footer() {
         ))}
       </div>
       <p className="hud">
-        © {new Date().getFullYear()} Atul Rao — built block by block
+        © {new Date().getFullYear()} Atul Rao - built block by block
       </p>
     </footer>
   );
